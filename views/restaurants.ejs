@@ -1,0 +1,24 @@
+<% include partials/header %>
+<div class="container">
+  <header class="jumbotron">
+    <h1>My Favorite Restaurants</h1>
+    <p>Take a look at some of my favorite restaurants and what I eat there!</p>
+    <a class="btn btn-primary btn-large" href="restaurants/new">Add new restaurant</a>
+  </header>
+
+
+  <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+    <% restaurants.forEach(function(restaurants){ %>
+    <div class="col-md-4 col-sm-6">
+      <div class="thumbnail">
+        <img src="<%=restaurants.image%>">
+      </div>
+      <div class="caption">
+        <h5><%=restaurants.name%></h5>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+
+</div>
+<% include partials/footer %>
