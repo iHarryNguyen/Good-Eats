@@ -2,6 +2,20 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 
+
+const MongoClient = require('mongodb').MongoClient;
+// replace the uri string with your connection string.
+const uri = "mongodb+srv://HarryNguyen:St4rcraft@cluster0-dodnr.mongodb.net/test?retryWrites=true"
+MongoClient.connect(uri, function(err, client) {
+  if (err) {
+    console.log('Error occurred while connecting to MongoDB Atlas...\n', err);
+  }
+  console.log('Connected...');
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 var restaurants = [{
     name: "Anh Thu II",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrcvODByPIeAcJJ6XIRbErn1iNI0ZH4tzvR8VEhXAiw99WOgkSxg"
